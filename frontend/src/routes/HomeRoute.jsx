@@ -6,6 +6,7 @@ import PhotoList from 'components/PhotoList';
 
 
 const HomeRoute = (props) => {
+  const [onPhotoClick, photos, selectedPhoto, setSelectedPhoto] = props
   const [fevPhoto, setFevPhoto] = useState([])
   const handlePhoto = (photoId) => {
     setFevPhoto((proveState) => {
@@ -25,7 +26,12 @@ const HomeRoute = (props) => {
   return (
     <div className='home-route'>
       <TopNavigation  hasFavourites={fevPhoto.length > 0}/>
-      <PhotoList handlePhoto={handlePhoto} onPhotoClick = {props.onPhotoClick} />
+      <PhotoList
+        photos={photos}
+        onPhotoClick={onPhotoClick}
+        selectedPhoto={selectedPhoto} // Pass selectedPhoto to PhotoList
+        setSelectedPhoto={setSelectedPhoto} // Pass setSelectedPhoto to PhotoList
+      />
 
     </div>
 
