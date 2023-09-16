@@ -9,12 +9,7 @@ import { useState } from 'react';
 import './App.scss';
 
 const App = (props) => {
-  const[liked, setLike] = useState(false);
-  const handleLike = () => {
-    setLike(!liked
-      )
-    props.handleClick(props.id)
-  }
+
   const photos = new Array(3).fill({});
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPhoto, setSelectedPhoto] = useState(null);//track which photo item the user clicks on
@@ -30,7 +25,12 @@ const App = (props) => {
 
   return ( // using index as parmeter in to give uniqe key for every photo
   <div className="App">
-  <HomeRoute onPhotoClick={onPhotoClick} photos={photos} />
+  <HomeRoute
+    onPhotoClick={onPhotoClick}
+    photos={photos}
+    selectedPhoto={selectedPhoto} // Pass selectedPhoto as a prop to HomeRoute
+    setSelectedPhoto={setSelectedPhoto} // Pass the setter function
+  />
   {isModalOpen && (
     <PhotoDetailsModal
       photo={selectedPhoto}
