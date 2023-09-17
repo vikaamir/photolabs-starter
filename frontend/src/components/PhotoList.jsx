@@ -1,7 +1,6 @@
 import React from "react";
 import PhotoListItem from './PhotoListItem';
 import photos from "mocks/photos";
-import { useState } from "react";
 import "../styles/PhotoList.scss";
 
 
@@ -11,7 +10,7 @@ const PhotoList = (props) => {
   if (similiarPhotos) {
     dispayPhotos = similiarPhotos;
   }
-  console.log( "rrrr",props.fevPhoto)
+
   return (
     <ul className="photo-list">
     {dispayPhotos.map((photoData) => (
@@ -30,7 +29,7 @@ const PhotoList = (props) => {
         setSelectedPhoto={props.setSelectedPhoto}
         fevPhoto ={props.fevPhoto}
       />
-    ))}
+    ))};
   </ul>
   );
 };

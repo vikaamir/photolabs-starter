@@ -11,14 +11,9 @@ import photos from 'mocks/photos';
 
 const PhotoDetailsModal = (props) => {
   const { photo, closeModal, fevPhoto, handleFevPhoto, selectedPhoto } = props;
-  console.log('photoDatails Photo:', selectedPhoto);
-
-
+  
   const GetsimilarPho = photos.find(photo => photo.id === selectedPhoto?.id)?.similar_photos;
   const similarPhotosArr = Object.values(GetsimilarPho);
- 
- console.log('GetsimilarPho:', GetsimilarPho);
-console.log('similarPhotosArr:', similarPhotosArr);
 
   return (
     <div className="photo-details-modal">
