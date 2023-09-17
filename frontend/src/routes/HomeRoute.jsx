@@ -5,8 +5,9 @@ import PhotoList from 'components/PhotoList';
 
 
 
+
 const HomeRoute = (props) => {
-  const [onPhotoClick, photos, selectedPhoto, setSelectedPhoto] = props
+  const { onPhotoClick, photos, selectedPhoto, setSelectedPhoto } = props;
   const [fevPhoto, setFevPhoto] = useState([])
   const handlePhoto = (photoId) => {
     setFevPhoto((proveState) => {

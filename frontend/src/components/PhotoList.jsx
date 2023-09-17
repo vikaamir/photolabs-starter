@@ -21,9 +21,8 @@ const PhotoList = (props) => {
         onPhotoClick = {props.onPhotoClick}
         photo = {photoData}
         isEnlarged ={false}
-
-        
-
+        selectedPhoto={props.selectedPhoto} // Pass selectedPhoto to PhotoListItem
+        setSelectedPhoto={props.setSelectedPhoto} // Pass setSelectedPhoto to PhotoListItem
       />
     ))}
   </ul>
