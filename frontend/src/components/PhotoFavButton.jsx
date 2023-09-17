@@ -8,7 +8,7 @@ function PhotoFavButton(props) {
   const handleLike = () => {
     setLike(!liked
       )
-    props.handleClick(props.id)
+    props.handlePhoto(props.id)
   }
 
   return (

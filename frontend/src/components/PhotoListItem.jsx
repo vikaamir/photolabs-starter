@@ -5,8 +5,7 @@ import PhotoFavButton from './PhotoFavButton';
 
 
 const PhotoListItem = (props) => {
-
-  const {id, username, profile, handleClick, onPhotoClick ,photo, isEnlarged, selectedPhoto, setSelectedPhoto } = props;
+  const {id, username, profile, handlePhoto, onPhotoClick ,photo, isEnlarged, selectedPhoto, setSelectedPhoto } = props;
 
   const style = isEnlarged ? { width: '100%', height: 'auto'} : { width: '200px', height: 'auto' };
 
@@ -18,7 +17,7 @@ const PhotoListItem = (props) => {
 
   return (
     <div className="photo-list__item" >
-      <PhotoFavButton  handleClick = {handleClick} id={id}/> 
+      <PhotoFavButton handleUpdata = {handleUpdata}selectedPhoto={selectedPhoto} setSelectedPhoto={setSelectedPhoto}   handlePhoto={handlePhoto} id={id}/> 
       <img  style={style} onClick={() => onPhotoClick(photo)}  className = "photo-list__image" src={photo.urls.regular} alt="Image photo" />
       <section className="photo-list__user-details" >
         <img className = "photo-list__user-profile"src={profile} alt="Profile image"/>

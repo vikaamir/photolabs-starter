@@ -16,7 +16,7 @@ const PhotoList = (props) => {
         user={photoData.user}
         imageSource ={photoData.urls.regular} 
         profile = {photoData.user.profile}
-        handleClick = {props.handlePhoto} 
+        handlePhoto = {props.handlePhoto} 
         id = {photoData.id}
         onPhotoClick = {props.onPhotoClick}
         photo = {photoData}

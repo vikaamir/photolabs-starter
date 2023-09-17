@@ -28,6 +28,7 @@ const HomeRoute = (props) => {
     <div className='home-route'>
       <TopNavigation  hasFavourites={fevPhoto.length > 0}/>
       <PhotoList
+      handlePhoto = {handlePhoto}
         photos={photos}
         onPhotoClick={onPhotoClick}
         selectedPhoto={selectedPhoto} // Pass selectedPhoto to PhotoList

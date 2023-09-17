@@ -21,7 +21,7 @@ const PhotoDetailsModal = (props) => {
       </button>
       <PhotoListItem photo={photo} isEnlarged={true} />
       <PhotoList />
-       <FavIcon/>
+       <FavIcon />
   
     </div>
   );
