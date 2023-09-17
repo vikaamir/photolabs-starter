@@ -9,19 +9,22 @@ import FavIcon from 'components/FavIcon';
 
 
 const PhotoDetailsModal = (props) => {
-  const { photo, closeModal} = props;
-  console.log('Selected Photo:', photo);
+  const { photo, closeModal, fevPhoto, handleFevPhoto } = props;
+  console.log('photoDatails Photo:', photo);
 
 
+console.log("we here", fevPhoto)
 
   return (
     <div className="photo-details-modal">
       <button onClick={closeModal} className="photo-details-modal__close-button">
         <img src={closeSymbol} alt="close symbol" />
       </button>
-      <PhotoListItem photo={photo} isEnlarged={true} />
+      <PhotoListItem photo={photo} isEnlarged={true} handleFevPhoto = {handleFevPhoto} fevPhoto ={fevPhoto} />
       <PhotoList />
-       <FavIcon />
+      <FavIcon  />
+
+
   
     </div>
   );

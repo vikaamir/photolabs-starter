@@ -16,13 +16,14 @@ const PhotoList = (props) => {
         user={photoData.user}
         imageSource ={photoData.urls.regular} 
         profile = {photoData.user.profile}
-        handlePhoto = {props.handlePhoto} 
+        handleFevPhoto = {props.handleFevPhoto} 
         id = {photoData.id}
         onPhotoClick = {props.onPhotoClick}
         photo = {photoData}
         isEnlarged ={false}
-        selectedPhoto={props.selectedPhoto} // Pass selectedPhoto to PhotoListItem
-        setSelectedPhoto={props.setSelectedPhoto} // Pass setSelectedPhoto to PhotoListItem
+        selectedPhoto={props.selectedPhoto}
+        setSelectedPhoto={props.setSelectedPhoto}
+        fevPhoto ={props.fevPhoto}
       />
     ))}
   </ul>
