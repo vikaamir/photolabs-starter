@@ -38,8 +38,6 @@ console.log("app", fevPhoto)
   };
 
 
-  
-
   return ( // using index as parmeter in to give uniqe key for every photo
   <div className="App">
   <HomeRoute
