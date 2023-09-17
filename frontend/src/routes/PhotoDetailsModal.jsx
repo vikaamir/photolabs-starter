@@ -5,15 +5,20 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 import PhotoListItem from 'components/PhotoListItem';
 import FavIcon from 'components/FavIcon';
+import photos from 'mocks/photos';
 
 
 
 const PhotoDetailsModal = (props) => {
-  const { photo, closeModal, fevPhoto, handleFevPhoto } = props;
-  console.log('photoDatails Photo:', photo);
+  const { photo, closeModal, fevPhoto, handleFevPhoto, selectedPhoto } = props;
+  console.log('photoDatails Photo:', selectedPhoto);
 
 
-console.log("we here", fevPhoto)
+  const GetsimilarPho = photos.find(photo => photo.id === selectedPhoto?.id)?.similar_photos;
+  const similarPhotosArr = Object.values(GetsimilarPho);
+ 
+ console.log('GetsimilarPho:', GetsimilarPho);
+console.log('similarPhotosArr:', similarPhotosArr);
 
   return (
     <div className="photo-details-modal">
@@ -21,11 +26,8 @@ console.log("we here", fevPhoto)
         <img src={closeSymbol} alt="close symbol" />
       </button>
       <PhotoListItem photo={photo} isEnlarged={true} handleFevPhoto = {handleFevPhoto} fevPhoto ={fevPhoto} />
-      <PhotoList />
+      <PhotoList  similiarPhotos = {similarPhotosArr}/>
       <FavIcon  />
-
-
-  
     </div>
   );
 };

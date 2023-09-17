@@ -23,6 +23,7 @@ const App = (props) => {
 
     })
   };
+console.log("app", fevPhoto)
   
   const photos = new Array(3).fill({});
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -35,6 +36,8 @@ const App = (props) => {
     setIsModalOpen(false);
     setSelectedPhoto(null);
   };
+
+
   
 
   return ( // using index as parmeter in to give uniqe key for every photo
@@ -54,6 +57,9 @@ const App = (props) => {
       closeModal={closeModal}
       fevPhoto = {fevPhoto}
       handleFevPhoto = {handleFevPhoto}
+      selectedPhoto = {selectedPhoto}
+      isModalOpen = {isModalOpen}
+ 
     />
   )}
 </div>

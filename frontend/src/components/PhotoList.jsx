@@ -6,11 +6,16 @@ import "../styles/PhotoList.scss";
 
 
 const PhotoList = (props) => { 
- 
+  const similiarPhotos = props.similiarPhotos;
+  let dispayPhotos = photos
+  if (similiarPhotos) {
+    dispayPhotos = similiarPhotos;
+  }
+  console.log( "rrrr",props.fevPhoto)
   return (
     <ul className="photo-list">
-    {photos.map((photoData) => (
-      <PhotoListItem className ="photo-list:after"
+    {dispayPhotos.map((photoData) => (
+      <PhotoListItem 
         key={photoData.id} 
         urls={photoData.urls}
         user={photoData.user}

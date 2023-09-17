@@ -8,22 +8,10 @@ import PhotoDetailsModal from './PhotoDetailsModal';
 
 
 const HomeRoute = (props) => {
-  const {handleFevPhoto, onPhotoClick, photos, selectedPhoto, setSelectedPhoto ,isModalOpen, fevPhoto} = props;
-  // const [fevPhoto, setFevPhoto] = useState([])
-  // const handleFevPhoto = (photoId) => {
-  //   setFevPhoto((proveState) => {
-  //     if (!proveState.includes(photoId)) {
-  //      return  [...proveState, photoId]
-  //     } else { 
-  //       const removeLike = fevPhoto.filter(id => {
-  //          return id !== photoId
-  //       }) 
-  //        return [...removeLike]
-  //     }
+  const {handleFevPhoto, onPhotoClick, photos, selectedPhoto, setSelectedPhoto , fevPhoto} = props;
 
-  //   })
-  // }
-  console.log("liked",fevPhoto)
+
+  console.log("liked",selectedPhoto)
 //passing the data to TopNavifation components via  
   return (
     <div className='home-route'>
@@ -35,6 +23,7 @@ const HomeRoute = (props) => {
         selectedPhoto={selectedPhoto} // Pass selectedPhoto to PhotoList
         setSelectedPhoto={setSelectedPhoto} 
         fevPhoto = {fevPhoto}
+    
       />
     </div>
 

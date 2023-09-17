@@ -5,9 +5,9 @@ import PhotoFavButton from './PhotoFavButton';
 
 
 const PhotoListItem = (props) => {
-  const {username, profile, handleFevPhoto, onPhotoClick ,photo, isEnlarged, fevPhoto} = props;
+  const {username, profile, handleFevPhoto, onPhotoClick ,photo, isEnlarged, fevPhoto, similiarPhotos} = props;
 
-
+ 
   const style = isEnlarged ? { width: '100%', height: 'auto'} : { width: '200px', height: 'auto' };
 
 console.log("test", fevPhoto)
@@ -26,6 +26,7 @@ console.log("test", fevPhoto)
       
     </div>
   );
+  
 };
 
 export default PhotoListItem;
