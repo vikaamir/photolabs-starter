@@ -17,7 +17,7 @@ const PhotoListItem = (props) => {
       <PhotoFavButton fevPhoto = {fevPhoto} handleFevPhoto={handleFevPhoto} id ={photo.id}/> 
       <img  style={style} onClick={() => onPhotoClick(photo)}  className = "photo-list__image" src={photo.urls.regular} alt="Image photo" />
       <section className="photo-list__user-details" >
-        <img className = "photo-list__user-profile"src={profile} alt="Profile image"/>
+        <img className = "photo-list__user-profile"src={photo.user.profile} alt="Profile image"/>
         <div className="photo-list__user-info">
           <span>{username}</span>
           <span className="photo-list__user-location">{photo.location.city},{photo.location.country}</span>

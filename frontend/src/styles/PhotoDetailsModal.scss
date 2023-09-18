@@ -11,7 +11,7 @@
   border-radius: 12px;
 }
 
-.photo-details-modal__close-button {
+.photo-details-modalclose-button {
   background-color: white;
   border: none;
   color: white;
@@ -24,17 +24,17 @@
   margin-top: 16px;
 }
 
-.photo-details-modal__images {
+.photo-details-modalimages {
   margin-left: 36px;
   margin-top: 8px;
 }
 
-.photo-details-modal__image {
+.photo-details-modalimage {
   max-width: 95%;
   border-radius: 8px;
 }
 
-.photo-details-modal__top-bar {
+.photo-details-modaltop-bar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -43,16 +43,35 @@
   align-items: center;
 }
 
-.photo-details-modal__photographer-details {
+.photo-details-modalphotographer-details {
   display: flex;
   font-size: 16px;
 }
 
-.photo-details-modal__header {
+.photo-details-modalheader {
   font-size: 18px;
   font-weight: 500;
   color: #1e1e1e;
   margin-top: 24px;
   margin-bottom: 24px;
   width: 90%;
+}
+
+.photo-details-modalphotographer-location {
+  color: #838383;
+}
+.photo-details-modalphotographer-profile {
+  object-fit: cover;
+  border-radius: 100%;
+  vertical-align: middle;
+  margin-right: 8px;
+  width: 40px;
+  height: 40px;
+}
+
+.photo-details-modal__photographer-info {
+  margin-top: 5px;
+  font-weight: 700;
+  font-size: 12px;
+  margin-left: 8px;
 }
