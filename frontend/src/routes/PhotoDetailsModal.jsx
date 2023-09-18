@@ -11,7 +11,7 @@ import PhotoFavButton from 'components/PhotoFavButton';
 
 
 const PhotoDetailsModal = (props) => {
-  const {  closeModal, selectedPhoto, username, profile, handleFevPhoto, onPhotoClick ,photo, isEnlarged, fevPhoto} = props;
+  const { closeModal, selectedPhoto, user, profile, handleFevPhoto, onPhotoClick ,photo, isEnlarged, fevPhoto} = props;
 
   const style = isEnlarged ? { width: '100%', height: 'auto'} : { width: '200px', height: 'auto' };
   
@@ -20,24 +20,25 @@ const PhotoDetailsModal = (props) => {
 
   return (
     <div className="photo-details-modal">
-      <button onClick={closeModal} className="photo-details-modal__close-button">
+      <button onClick={closeModal} className="photo-details-modalclose-button">
         <img src={closeSymbol} alt="close symbol" />
       </button>
-      <PhotoListItem photo={photo} isEnlarged={true} handleFevPhoto = {handleFevPhoto} fevPhoto ={fevPhoto} />
-      <PhotoList  similiarPhotos = {similarPhotosArr}/>
-      <FavIcon  />
       <div className="photo-list__item" >
       <PhotoFavButton fevPhoto = {fevPhoto} handleFevPhoto={handleFevPhoto} id ={photo.id}/> 
-      <img  style={style} onClick={() => onPhotoClick(photo)}  className = "photo-list__image" src={photo.urls.regular} alt="Image photo" />
-      <section className="photo-list__user-details" >
-        <img className = "photo-list__user-profile"src={profile} alt="Profile image"/>
-        <div className="photo-list__user-info">
-          <span>{username}</span>
-          <span className="photo-list__user-location">{photo.location.city},{photo.location.country}</span>
+      <img className = "photo-details-modalimage" src={photo.urls.regular} alt="Image photo" />
+      <section className="photo-details-modaltop-bar" >
+        <img className = "photo-list__user-profile"src={photo.user.profile} alt="Profile image"/>
+        <div className="photo-details-modalheader">
+          <p>{photo.user.username}</p>
+          <span className="photo-details-modalphotographer-location">{photo.location.city},{photo.location.country}</span>
         </div>
       </section>
-      
+    
     </div>
+    <div className='photo-details-modalimages'>
+    <PhotoList similiarPhotos = {similarPhotosArr}/>
+    </div>
+     
     </div>
     
   );

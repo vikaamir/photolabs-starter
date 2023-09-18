@@ -5,21 +5,21 @@ import PhotoFavButton from './PhotoFavButton';
 
 
 const PhotoListItem = (props) => {
-  const {username, profile, handleFevPhoto, onPhotoClick ,photo, isEnlarged, fevPhoto} = props;
+  const {user, profile, handleFevPhoto, onPhotoClick ,photo, isEnlarged, fevPhoto} = props;
 
  
-  const style = isEnlarged ? { width: '100%', height: 'auto'} : { width: '200px', height: 'auto' };
+  // const style = isEnlarged ? { width: '100%', height: 'auto'} : { width: '200px', height: 'auto' };
 
 
 
   return (
     <div className="photo-list__item" >
       <PhotoFavButton fevPhoto = {fevPhoto} handleFevPhoto={handleFevPhoto} id ={photo.id}/> 
-      <img  style={style} onClick={() => onPhotoClick(photo)}  className = "photo-list__image" src={photo.urls.regular} alt="Image photo" />
+      <img  onClick={() => onPhotoClick(photo)}  className = "photo-list__image" src={photo.urls.regular} alt="Image photo" />
       <section className="photo-list__user-details" >
         <img className = "photo-list__user-profile"src={photo.user.profile} alt="Profile image"/>
         <div className="photo-list__user-info">
-          <span>{username}</span>
+          <p>{photo.user.username}</p>
           <span className="photo-list__user-location">{photo.location.city},{photo.location.country}</span>
         </div>
       </section>
