@@ -1,6 +1,6 @@
 .photo-details-modal {
   background-color: white;
-  box-shadow: 0 0 0 50vmax rgba(0,0,0,.5);
+  box-shadow: 0 0 0 50vmax rgba(0,0,0,0.7);
   position: absolute;
   top: 55%;
   left: 50%;
@@ -35,7 +35,7 @@
 
 .photo-details-modalimage {
   max-width: 95%;
-  border-radius: 8px;
+  
 }
 
 .photo-details-modaltop-bar {
