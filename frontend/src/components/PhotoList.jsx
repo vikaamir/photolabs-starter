@@ -22,12 +22,12 @@ const PhotoList = (props) => {
         profile = {photoData.user.profile}
         handleFevPhoto = {props.handleFevPhoto} 
         id = {photoData.id}
-        onPhotoClick = {props.onPhotoClick}
         photo = {photoData}
         isEnlarged ={false}
         selectedPhoto={props.selectedPhoto}
         setSelectedPhoto={props.setSelectedPhoto}
         fevPhoto ={props.fevPhoto}
+        toggleModal = {props.toggleModal}
       />
     ))};
   </ul>

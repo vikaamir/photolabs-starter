@@ -1,5 +1,5 @@
 import React from 'react';
-
+import useApplicationData from 'hooks/useApplicationData';
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
@@ -11,7 +11,13 @@ import PhotoFavButton from 'components/PhotoFavButton';
 
 
 const PhotoDetailsModal = (props) => {
-  const { closeModal, selectedPhoto,  handleFevPhoto,  isEnlarged, fevPhoto} = props;
+  const {setSelectedPhoto,toggleModal, selectedPhoto,  handleFevPhoto,  isEnlarged, fevPhoto} = props;
+
+  function closeModal (){
+    toggleModal()
+    setSelectedPhoto(null)
+
+  }
 
   const style = isEnlarged ? { width: '100%', height: 'auto'} : { width: '200px', height: 'auto' };
   

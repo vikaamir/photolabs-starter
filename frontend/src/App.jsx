@@ -7,22 +7,25 @@ import { useState } from 'react';
 import './App.scss';
 
 const App = (props) => {
-const { handleFevPhoto,
-  closeModal,
-  onPhotoClick,
-  photos,
-  selectedPhoto,
-  fevPhoto,
+const { 
+  handleFevPhoto,
   setSelectedPhoto,
-isModalOpen } = useApplicationData()
-  
+  toggleModal,
+  photos,
+  state } = useApplicationData()
+
+  const{  
+    fevPhoto,
+    isModalOpen,
+    selectedPhoto} = state
+  console.log("im here",state)
 
   return ( // using index as parmeter in to give uniqe key for every photo
   <div className="App">
   <HomeRoute
-  fevPhoto = {fevPhoto}
-  handleFevPhoto ={handleFevPhoto}
-    onPhotoClick={onPhotoClick}
+    toggleModal = {toggleModal}
+    fevPhoto = {fevPhoto}
+    handleFevPhoto ={handleFevPhoto}
     photos={photos}
     selectedPhoto={selectedPhoto} // Pass selectedPhoto as a prop to HomeRoute
     setSelectedPhoto={setSelectedPhoto} // Pass the setter function
@@ -31,9 +34,12 @@ isModalOpen } = useApplicationData()
   {isModalOpen && (
     <PhotoDetailsModal
       selectedPhoto={selectedPhoto}
-      closeModal={closeModal}
+      toggleModal={toggleModal}
       fevPhoto = {fevPhoto}
       handleFevPhoto = {handleFevPhoto}
+      setSelectedPhoto ={setSelectedPhoto}
+
+      
     />
   )}
 </div>
