@@ -12,7 +12,7 @@ console.log(props.hasFavourites)
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
   
-        <TopicList/> 
+        <TopicList topicData = {props.topicData}/> 
         <FavIcon  displayAlert = {props.hasFavourites} selected={true}/>
 
         
