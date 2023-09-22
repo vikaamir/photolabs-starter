@@ -1,5 +1,6 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import ReactDOM from "react-dom";
+
 
 const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
@@ -16,8 +17,12 @@ const ACTIONS = {
 const initialState = {
   fevPhoto: [],
   isModalOpen: false,
-  selectedPhoto: null
+  selectedPhoto: null,
+  photoData: [],
+  topicData: []
 }
+
+
 function reducer(state, action) {
   switch (action.type) {
     case 'TOGGLE_MODAL':
@@ -51,6 +56,13 @@ function reducer(state, action) {
  function useApplicationData() {
   const photos = new Array(3).fill({});
   const [state, dispatch] = useReducer(reducer, initialState)
+
+  useEffect(() => {
+    fetch("/api/photos")
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
+  }, []);
+
 
   const setSelectedPhoto = (photo) => {
     dispatch({type:ACTIONS.SET_PHOTO_DATA, payload:photo});
