@@ -16,6 +16,9 @@ const App = (props) => {
     topicData
   } = useApplicationData()
 
+  console.log("photodata",photoData)
+  console.log(topicData)
+
   const {
     fevPhoto,
     isModalOpen,

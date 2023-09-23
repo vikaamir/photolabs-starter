@@ -4,6 +4,7 @@ import axios from "axios";
 import ReactDOM from "react-dom";
 
 
+
 const ACTIONS = {
   FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
   FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
@@ -11,7 +12,8 @@ const ACTIONS = {
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
-  TOGGLE_MODAL: 'TOGGLE_MODAL'
+  TOGGLE_MODAL: 'TOGGLE_MODAL',
+  GET_PHOTOS_BY_TOPIC: "GET_PHOTOS_BY_TOPIC"
 
 
 }
@@ -20,19 +22,20 @@ const initialState = {
   fevPhoto: [],
   isModalOpen: false,
   selectedPhoto: null,
-  photoData: [],
-  topicData: []
+  photos: [],
+  topics: []
 }
 
+
 function reducer(state, action) {
+  console.log("action", action)
   switch (action.type) {
     case 'TOGGLE_MODAL':
-      console.log("fsftg")
       return {
         ...state,
         isModalOpen: !state.isModalOpen
       }
-    case 'SET_PHOTO_DATA':
+    case 'SELECT_PHOTO':
       return {
         ...state,
         selectedPhoto: action.payload
@@ -46,9 +49,19 @@ function reducer(state, action) {
       return {
         ...state,
         fevPhoto: state.fevPhoto.filter(id => id !== action.payload)
-      }
-      case 'SET_PHOTO_DATA':
-    return { ...state, photoData: action.payload };
+      };
+    case 'SET_PHOTO_DATA':
+      return { ...state, photoData: action.payload };
+
+    case "SET_TOPIC_DATA":
+      console.log(" settopicData")
+      return {
+        ...state,
+            topics: action.payload,
+          };
+    case ACTIONS.GET_PHOTOS_BY_TOPIC: 
+      return { ...state, photoData:
+            action.payload };
 
     default:
       return state
@@ -59,17 +72,26 @@ function reducer(state, action) {
 function useApplicationData() {
   const photos = new Array(3).fill({});
   const [state, dispatch] = useReducer(reducer, initialState)
+  console.log("statetopics",state.topics)
 
   useEffect(() => {
     axios("http://localhost:8001/api/photos")
       .then((response) => {
         dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: response.data })
       })
+      axios("http://localhost:8001/api/topics")
+      .then((response) => {
+        console.log("data",response.data)
+        dispatch({ type : ACTIONS.SET_TOPIC_DATA, payload: response.data})
+      })
   }, []);
 
 
+
+
+
   const setSelectedPhoto = (photo) => {
-    dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photo });
+    dispatch({ type: ACTIONS.SELECT_PHOTO, payload: photo });
   };
 
   const toggleModal = () => {
@@ -85,6 +107,8 @@ function useApplicationData() {
 
     };
 
+    
+
   };
 
 
@@ -92,10 +116,9 @@ function useApplicationData() {
     handleFevPhoto,
     setSelectedPhoto,
     toggleModal,
-    photos,
     state,
-    photoData: state.photoData,
-    topicData: state.topicData
+    photoData: state.photos,
+    topicData: state.topics
   }
 
 

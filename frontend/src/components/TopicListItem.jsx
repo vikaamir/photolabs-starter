@@ -4,10 +4,10 @@ import "../styles/TopicListItem.scss";
 
 //component takes the proprs from TopicList.jsx and return 
 const TopicListItem = (props) => {
-  const {title} = props
+  const topicData = props.topicData
   return (
     <div className="topic-list__item">
-      <span className="topic-list__item">{title}</span>
+      <span className="topic-list__item">{topicData}</span>
     </div>
   );
 };
