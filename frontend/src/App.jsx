@@ -17,7 +17,7 @@ const App = (props) => {
     topicData,
   } = useApplicationData()
 
-  console.log("photodata",photoData)
+  console.log("photodata", photoData)
   console.log(topicData)
 
   const {
@@ -26,8 +26,7 @@ const App = (props) => {
     selectedPhoto
   } = state
 
-
-  return ( 
+  return (
     <div className="App">
       <HomeRoute
         toggleModal={toggleModal}
@@ -37,8 +36,8 @@ const App = (props) => {
         selectedPhoto={selectedPhoto} // Pass selectedPhoto as a prop to HomeRoute
         setSelectedPhoto={setSelectedPhoto}
         photoData={photoData}
-        topicData = {topicData}
-        handleFetch ={getPhotosByTopic}
+        topicData={topicData}
+        handleFetch={getPhotosByTopic}
       />
 
       {isModalOpen && (

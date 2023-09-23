@@ -46,18 +46,18 @@ function reducer(state, action) {
       };
     case ACTIONS.SET_PHOTO_DATA:
       return {
-         ...state, photos: action.payload 
-        };
+        ...state, photos: action.payload
+      };
     case ACTIONS.SET_TOPIC_DATA:
       return {
         ...state,
         topics: action.payload,
       };
-      case ACTIONS.GET_PHOTOS_BY_TOPIC:
-        return {
-          ...state,
-          photos: action.payload,
-        };
+    case ACTIONS.GET_PHOTOS_BY_TOPIC:
+      return {
+        ...state,
+        photos: action.payload,
+      };
     default:
       return state;
   }
@@ -96,11 +96,7 @@ function useApplicationData() {
         console.error('Error fetching photos by topic:', error);
       });
   };
-
- 
   
-
-
   const setSelectedPhoto = (photo) => {
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: photo });
   };

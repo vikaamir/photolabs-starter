@@ -7,15 +7,15 @@ import FavIcon from './FavIcon';
 import '../styles/TopNavigationBar.scss'
 
 const TopNavigation = (props) => {
-console.log(props.hasFavourites)
+  console.log(props.hasFavourites)
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
-  
-        <TopicList handleFetch = {props.handleFetch} topicData = {props.topicData}/> 
-        <FavIcon  displayAlert = {props.hasFavourites} selected={true}/>
 
-        
+      <TopicList handleFetch={props.handleFetch} topicData={props.topicData} />
+      <FavIcon displayAlert={props.hasFavourites} selected={true} />
+
+
     </div>
   )
 }
