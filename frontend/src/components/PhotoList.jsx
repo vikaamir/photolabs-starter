@@ -1,15 +1,9 @@
 import React from "react";
 import PhotoListItem from './PhotoListItem';
-// import photos from "mocks/photos";
 import "../styles/PhotoList.scss";
 
 
 const PhotoList = (props) => {
-  // const similiarPhotos = props.similiarPhotos;
-  // let dispayPhotos = props.photos
-  // if (similiarPhotos) {
-  //   dispayPhotos = similiarPhotos;
-  // }
 
   return (
     <ul className="photo-list">

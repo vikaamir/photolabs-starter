@@ -24,7 +24,7 @@ const initialState = {
 
 function reducer(state, action) {
   switch (action.type) {
-    case ACTIONS.TOGGLE_MODAL:
+    case ACTIONS.TOGGLE_MODAL:// to open model photos
       return {
         ...state,
         isModalOpen: !state.isModalOpen,
@@ -65,12 +65,12 @@ function reducer(state, action) {
 
 function useApplicationData() {
   const [state, dispatch] = useReducer(reducer, initialState);
-
+  // replaces every single lifecycle function that you may run into. 
   useEffect(() => {
-    axios.get('http://localhost:8001/api/photos')
+    axios.get('http://localhost:8001/api/photos')// geting the data from API
       .then((response) => {
         console.log("response photo", response)
-        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: response.data });
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: response.data });//dipactch the action with thedata respone fron the API
       })
       .catch((error) => {
         console.error('Error fetching photos:', error);
@@ -96,7 +96,7 @@ function useApplicationData() {
         console.error('Error fetching photos by topic:', error);
       });
   };
-  
+
   const setSelectedPhoto = (photo) => {
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: photo });
   };
