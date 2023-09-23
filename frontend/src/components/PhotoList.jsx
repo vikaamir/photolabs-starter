@@ -1,19 +1,19 @@
 import React from "react";
 import PhotoListItem from './PhotoListItem';
-import photos from "mocks/photos";
+// import photos from "mocks/photos";
 import "../styles/PhotoList.scss";
 
 
 const PhotoList = (props) => { 
-  const similiarPhotos = props.similiarPhotos;
-  let dispayPhotos = photos
-  if (similiarPhotos) {
-    dispayPhotos = similiarPhotos;
-  }
+  // const similiarPhotos = props.similiarPhotos;
+  // let dispayPhotos = props.photos
+  // if (similiarPhotos) {
+  //   dispayPhotos = similiarPhotos;
+  // }
 
   return (
     <ul className="photo-list">
-    {dispayPhotos.map((photoData) => (
+    {props.photos.map((photoData) => (
       <PhotoListItem 
         key={photoData.id} 
         urls={photoData.urls}

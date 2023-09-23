@@ -7,8 +7,8 @@ import '../styles/PhotoFavButton.scss';
 function PhotoFavButton(props) {
   // We are checking to see if the photo id exists in the array of favourites
   const handleLike = () => {
-    props.handleFevPhoto(props.id);
-  }
+    props.handleFevPhoto(props.id)
+  };
 
   // Check if the id exists in the array, and if it does, it will return true and make the heart fill red
 

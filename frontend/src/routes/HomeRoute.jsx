@@ -8,12 +8,13 @@ import PhotoList from 'components/PhotoList';
 
 
 const HomeRoute = (props) => {
-  const {toggleModal, handleFevPhoto, photos, selectedPhoto, setSelectedPhoto , fevPhoto, photoData, topicData} = props;
+  const {toggleModal, handleFevPhoto, photos, selectedPhoto, setSelectedPhoto , fevPhoto, photoData, topicData, handleFetch} = props;
+  console.log("photos", photos)
 
 //passing the data to TopNavifation components via  
   return (
     <div className='home-route'>
-      <TopNavigation topicData={topicData} hasFavourites={fevPhoto.length > 0}/>
+      <TopNavigation handleFetch={handleFetch} topicData={topicData} hasFavourites={fevPhoto.length > 0}/>
       <PhotoList
         toggleModal = {toggleModal}
         handleFevPhoto = {handleFevPhoto}

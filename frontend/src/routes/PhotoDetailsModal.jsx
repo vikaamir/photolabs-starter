@@ -21,10 +21,10 @@ const PhotoDetailsModal = (props) => {
 
   const style = isEnlarged ? { width: '100%', height: 'auto'} : { width: '200px', height: 'auto' };
   
-  const GetsimilarPho = photos.find(photo => photo.id === selectedPhoto?.id)?.similar_photos;
-  console.log(selectedPhoto)
-  console.log("im here" ,GetsimilarPho)
-  const similarPhotosArr = Object.values(GetsimilarPho);
+  // const GetsimilarPho = photos.find(photo => photo.id === selectedPhoto?.id)?.similar_photos;
+  console.log("photoDetails",selectedPhoto)
+  // console.log("im here" ,GetsimilarPho)
+  // const G = Object.values(GetsimilarPho);
 
   return (
     <div className="photo-details-modal">
@@ -44,7 +44,7 @@ const PhotoDetailsModal = (props) => {
     
     </div>
     <div className='photo-details-modalimages'>
-    <PhotoList similiarPhotos = {similarPhotosArr}/>
+    <PhotoList photos = {selectedPhoto.similar_photos}/>
     </div>
      
     </div>

@@ -7,13 +7,14 @@ import './App.scss';
 
 const App = (props) => {
   const {
+    getPhotosByTopic,
     handleFevPhoto,
     setSelectedPhoto,
     toggleModal,
     photos,
     state,
     photoData,
-    topicData
+    topicData,
   } = useApplicationData()
 
   console.log("photodata",photoData)
@@ -25,17 +26,19 @@ const App = (props) => {
     selectedPhoto
   } = state
 
-  return ( // using index as parmeter in to give uniqe key for every photo
+
+  return ( 
     <div className="App">
       <HomeRoute
         toggleModal={toggleModal}
         fevPhoto={fevPhoto}
         handleFevPhoto={handleFevPhoto}
-        photos={photos}
+        photos={photoData}
         selectedPhoto={selectedPhoto} // Pass selectedPhoto as a prop to HomeRoute
         setSelectedPhoto={setSelectedPhoto}
         photoData={photoData}
         topicData = {topicData}
+        handleFetch ={getPhotosByTopic}
       />
 
       {isModalOpen && (
