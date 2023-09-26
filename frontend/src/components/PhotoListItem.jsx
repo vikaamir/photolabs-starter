@@ -11,7 +11,6 @@ const PhotoListItem = (props) => {
     setSelectedPhoto(photo)
     toggleModal()
   };
-  console.log("photo", photo)
   return (
     <div className="photo-list__item" >
       <PhotoFavButton fevPhoto={fevPhoto} handleFevPhoto={handleFevPhoto} id={photo.id} />

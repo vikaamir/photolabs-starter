@@ -5,20 +5,16 @@ import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 
 import './App.scss';
 
-const App = (props) => {
+const App = () => {
   const {
     getPhotosByTopic,
     handleFevPhoto,
     setSelectedPhoto,
     toggleModal,
-    photos,
     state,
     photoData,
     topicData,
   } = useApplicationData()
-
-  console.log("photodata", photoData)
-  console.log(topicData)
 
   const {
     fevPhoto,

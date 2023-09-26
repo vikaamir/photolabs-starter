@@ -33,7 +33,7 @@ const PhotoDetailsModal = (props) => {
 
       </div>
       <div className='photo-details-modalimages'>
-        <PhotoList photos={selectedPhoto.similar_photos} />
+        <PhotoList   fevPhoto={fevPhoto} handleFevPhoto={handleFevPhoto} photos={selectedPhoto.similar_photos} />
       </div>
 
     </div>

@@ -69,7 +69,6 @@ function useApplicationData() {
   useEffect(() => {
     axios.get('http://localhost:8001/api/photos')// geting the data from API
       .then((response) => {
-        console.log("response photo", response)
         dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: response.data });//dipactch the action with thedata respone fron the API
       })
       .catch((error) => {
@@ -78,7 +77,6 @@ function useApplicationData() {
 
     axios.get('http://localhost:8001/api/topics')
       .then((response) => {
-        console.log('data', response.data);
         dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: response.data });
       })
       .catch((error) => {
@@ -89,7 +87,6 @@ function useApplicationData() {
   const getPhotosByTopic = (topic_id) => {
     return axios.get(`http://localhost:8001/api/topics/photos/${topic_id}`)
       .then((response) => {
-        console.log("respons", response.data)
         dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPIC, payload: response.data });
       })
       .catch((error) => {

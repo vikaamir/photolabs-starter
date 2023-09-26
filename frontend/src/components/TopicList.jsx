@@ -6,8 +6,7 @@ import TopicListItem from "./TopicListItem";
 
 const TopicList = (props) => {
   const {topicData, handleFetch} = props
-  console.log(topicData, " topicData")
-
+ 
   if (!topicData || !Array.isArray(topicData)) {
     return null; 
   }
