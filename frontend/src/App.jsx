@@ -7,6 +7,7 @@ import './App.scss';
 
 const App = () => {
   const {
+    getFevPhotos,
     getPhotosByTopic,
     handleFevPhoto,
     setSelectedPhoto,
@@ -25,6 +26,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute
+        getFevPhotos={getFevPhotos}
         toggleModal={toggleModal}
         fevPhoto={fevPhoto}
         handleFevPhoto={handleFevPhoto}
