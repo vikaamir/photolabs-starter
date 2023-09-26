@@ -6,14 +6,14 @@ import PhotoFavButton from 'components/PhotoFavButton';
 
 
 
+
 const PhotoDetailsModal = (props) => {
   const { setSelectedPhoto, toggleModal, selectedPhoto, handleFevPhoto, fevPhoto } = props;
 
   function closeModal() {
     toggleModal()
     setSelectedPhoto(null)
-
-  };
+  }
 
   return (
     <div className="photo-details-modal">
@@ -33,7 +33,7 @@ const PhotoDetailsModal = (props) => {
 
       </div>
       <div className='photo-details-modalimages'>
-        <PhotoList   fevPhoto={fevPhoto} handleFevPhoto={handleFevPhoto} photos={selectedPhoto.similar_photos} />
+        <PhotoList selectedPhoto = {selectedPhoto} toggleModal={toggleModal} setSelectedPhoto ={setSelectedPhoto} fevPhoto={fevPhoto} handleFevPhoto={handleFevPhoto} photos={selectedPhoto.similar_photos} />
       </div>
 
     </div>
