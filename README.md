@@ -1,5 +1,5 @@
 # PhotoLab Project
-A social newWork React based, where you can see photos, like your favorit photos and look at similer photos.
+A social network app that is React based, where you can see photos, like your favourite photos and look at similer photos.
 
 
 # screenShots
@@ -10,12 +10,15 @@ A social newWork React based, where you can see photos, like your favorit photos
 
 
 ## Getting Started
-1. http://localhost:3000 run the url in your browser
-2. main page have a top vanigation bar with diffrent topics and heart.
-3. Body page with diffrent photos of users 
-4. User can liked their Ravorits Photos and see the notifiation.
-5. User can open photo and see similr photo.
-6. User can chose photo topic and see all the photos of the same topic.
+1. Run your "node index.js" command that is located in "photolabs-starter/backend/src" to start the server.
+1. Run "npm start" command that is located in "photolabs-starter/frontend" to start the app.
+2. Now your browser must be automatically directed to the main page (http://localhost:3000/) 
+2. Main page have a top navigation bar with diffrent topics and a heart icon.
+2. You can filter you liked photos by clicking the heart icon.
+2. When you like photos the heart icon get a notification. 
+3. Body of the main page has various photos of different users. 
+5. User can focus on a photo by clicking on it and see similar photos.
+6. User can choose a topic from the navigation bar to see all the photos of the same topic.
 
 
 
