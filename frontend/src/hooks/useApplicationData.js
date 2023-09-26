@@ -67,20 +67,20 @@ function useApplicationData() {
   const [state, dispatch] = useReducer(reducer, initialState);
   // replaces every single lifecycle function that you may run into. 
   useEffect(() => {
-    axios.get('http://localhost:8001/api/photos')// geting the data from API
-      .then((response) => {
-        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: response.data });//dipactch the action with thedata respone fron the API
-      })
-      .catch((error) => {
-        console.error('Error fetching photos:', error);
-      });
+    const photoApiUrl = 'http://localhost:8001/api/photos';
+    const topicApiUrl = 'http://localhost:8001/api/topics';
+    // Use Promise.all to fetch data from both endpoints concurrently
+    Promise.all([axios.get(photoApiUrl), axios.get(topicApiUrl)])
+      .then(([photoResponse, topicResponse]) => {
+        // Destructure the responses
+        const photoData = photoResponse.data;
+        const topicData = topicResponse.data;
 
-    axios.get('http://localhost:8001/api/topics')
-      .then((response) => {
-        dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: response.data });
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData });
+        dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: topicData });
       })
       .catch((error) => {
-        console.error('Error fetching topics:', error);
+        console.error('Error fetching data:', error);
       });
   }, []);
 
