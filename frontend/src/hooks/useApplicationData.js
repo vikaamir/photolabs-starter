@@ -10,7 +10,8 @@ const ACTIONS = {
   SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
   TOGGLE_MODAL: 'TOGGLE_MODAL',
-  GET_PHOTOS_BY_TOPIC: 'GET_PHOTOS_BY_TOPIC'
+  GET_PHOTOS_BY_TOPIC: 'GET_PHOTOS_BY_TOPIC',
+  GET_LIKED_PHOTOS: 'GET_LIKED_PHOTOS'
 };
 
 const initialState = {
@@ -57,7 +58,8 @@ function reducer(state, action) {
       return {
         ...state,
         photos: action.payload,
-      };
+      };  
+
     default:
       return state;
   }
@@ -113,8 +115,15 @@ function useApplicationData() {
     }
   };
 
+  const getFevPhotos = () => {
+    const fevPhotosObjs = state.fevPhoto.map(p_id => state.photos.find(p => p.id === p_id))
+    dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: fevPhotosObjs})
+  };
+
+
   return {
     selectedPhoto: state.selectedPhoto,
+    getFevPhotos,
     getPhotosByTopic,
     handleFevPhoto,
     setSelectedPhoto,
